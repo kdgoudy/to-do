@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <ul>
+        {% for index, todo_item in enumerate(todo_items) %}
+            <li>
+                {{ todo_item }}
+                <form action="/delete/{{ index }}" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="/add" method="POST">
+        <input type="text" name="todo_item">
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html>
